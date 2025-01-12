@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI1.MainPage">
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="0">
+            <!-- Arama Çubuğu -->
+            <SearchBar Placeholder="Ara"
+                       Text="{Binding SearchQuery}"
+                       BackgroundColor="#F5F5F5"
+                       Margin="10"
+                       HeightRequest="40"
+                       HorizontalOptions="FillAndExpand" />
+
+            <!-- Telefon Rehberi Listesi -->
+            <CollectionView ItemsSource="{Binding Contacts}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnDefinitions="60,*,Auto" RowDefinitions="Auto">
+                            <!-- Profil Resmi -->
+                            <Frame WidthRequest="50"
+                                   HeightRequest="50"
+                                   CornerRadius="25"
+                                   IsClippedToBounds="True"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Padding="0"
+                                   HasShadow="False"
+                                   BackgroundColor="Transparent">
+                                <Image Source="{Binding ProfilePicture}"
+                                       Aspect="AspectFill" />
+                            </Frame>
+
+                            <!-- İsim ve Telefon -->
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Padding="10,0">
+                                <Label Text="{Binding Name}" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Start" />
+                                <Label Text="{Binding PhoneNumber}" 
+                                       FontSize="14"
+                                       TextColor="Gray"
+                                       VerticalOptions="End" />
+                            </VerticalStackLayout>
+
+                            <!-- Aksiyon Butonu -->
+                            <ImageButton Source="message_icon.png"
+                                         Grid.Column="2"
+                                         WidthRequest="30"
+                                         HeightRequest="30"
+                                         HorizontalOptions="End"
+                                         VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

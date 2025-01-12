@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="MAUI1.AppShell"
+       xmlns:local="clr-namespace:MAUI1">
+    <!-- Tab Bar -->
+    <TabBar >
+        <Tab Title="Home" Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="Search" Icon="search_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:SearchPage}" />
+        </Tab>
+        <Tab Title="Notifications" Icon="notifications_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NotificationsPage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="profile_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+    </TabBar>
+</Shell>
